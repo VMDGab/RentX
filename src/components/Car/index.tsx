@@ -12,6 +12,7 @@ import {
     Type,
     CarImage,
 } from './styles';
+import { RectButtonProps } from 'react-native-gesture-handler';
 
 interface CarData {
     brand: string;
@@ -24,13 +25,13 @@ interface CarData {
   }
 
 
-interface props {
+interface props extends RectButtonProps {
     data: CarData
   }
 
-export function Car({data}: props) {
+export function Car({data, ...rest}: props) {
     return (
-        <Container>
+        <Container {...rest}>
             <Details>
                 <Brand>{data.brand}</Brand>
                 <Name>{data.name}</Name>

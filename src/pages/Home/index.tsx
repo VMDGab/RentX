@@ -11,8 +11,11 @@ import {
   CarList
 } from './styles';
 import { Car } from '../../components/Car';
+import { useNavigation } from '@react-navigation/native';
 
 export function Home() {
+
+  const navigation = useNavigation()
   const CarData = {
     brand: 'AUDI',
     name: 'R5 Coupé',
@@ -21,6 +24,11 @@ export function Home() {
         price: '120',
     },
     thumbnail: 'https://i.pinimg.com/originals/cb/7e/3a/cb7e3a7103f1f6416ae37dbf6ec1bc56.png'
+  }
+
+
+  function handleCarDetails(){
+    navigation.navigate('CarDetails')
   }
 
    return (
@@ -47,7 +55,7 @@ export function Home() {
 
     <CarList
     data={[1, 2, 3, 4, 5,]}
-    renderItem={({item}) =>  <Car data={CarData}/>}
+    renderItem={({item}) =>  <Car data={CarData} onPress={handleCarDetails}/>}
    
      />
     </Container >
