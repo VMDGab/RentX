@@ -14,7 +14,7 @@ export function Accessory({name, icon : Icon} : Props) {
   return (
     <Container>
         <Icon width={32} height={32} />
-        <Name>{name}</Name>
+        <Name style={{fontSize: 15}}>{name}</Name>
     </Container>
   );
 }

@@ -12,12 +12,13 @@ import { SchedulingDetails } from '../pages/SchedulingDetails';
 export function StackRoutes() {
   return (
     <Navigator>
- <Screen name="Scheduling" component={Scheduling} options={{headerShown: false}}/>
+
 
       <Screen name="Home" component={Home} options={{headerShown: false}} />
 
       <Screen name="CarDetails" component={CarDetails} options={{headerShown: false}} />
-
+      
+      <Screen name="Scheduling" component={Scheduling} options={{headerShown: false}}/>
      
       <Screen name="SchedulingComplete" component={SchedulingComplete} options={{headerShown: false}} />
 
