@@ -46,16 +46,11 @@ export function Scheduling() {
     const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>({} as RentalPeriod)
 
     function handleConfirmRental() {
-        if (!rentalPeriod.startFormatted || !rentalPeriod.endFormatted) {
-            Alert.alert('Nenhuma data selecionada!', 'Selecione um intervalo de datas para alugar.')
-        }
-        else {
-            navigation.navigate('SchedulingDetails', {
+             navigation.navigate('SchedulingDetails', {
                 car,
                 dates: Object.keys(markedDates)
             })
-        }
-    }
+           }
     function handleGoBack() {
         navigation.goBack()
     }
@@ -122,7 +117,7 @@ export function Scheduling() {
             </Content>
 
             <Footer>
-                <Button title='Confirmar' onPress={handleConfirmRental} />
+                <Button title='Confirmar' onPress={handleConfirmRental} enabled={!!rentalPeriod.startFormatted}/>
             </Footer>
         </Container>
     );
