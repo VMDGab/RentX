@@ -63,6 +63,7 @@ export function SchedulingDetails() {
   const route = useRoute();
 
   const { car, dates } = route.params as Params
+  const [loading, setloading] = useState(false)
 
   const rentTotal = Number(dates.length * car.rent.price)
   async function handleConfirmRental() {
@@ -81,11 +82,17 @@ export function SchedulingDetails() {
     endDate: rentalPeriod.end,
     })
 
+    setloading(true)
+
     api.put(`/schedules_bycars/${car.id}`,{
       id: car.id,
       unavailable_dates
     }).then( response => navigation.navigate('SchedulingComplete'))
-    .catch(() => Alert.alert('Erro ao agendar.', 'Não foi possivel confirmar o agendamento do carro.'))
+    .catch(() => {
+    Alert.alert('Erro ao agendar.', 'Não foi possivel confirmar o agendamento do carro.')
+    setloading(false)
+    }
+    )
    
   }
 
@@ -161,7 +168,13 @@ export function SchedulingDetails() {
       </Content>
 
       <Footer>
-        <Button title='Alugar agora' color={theme.colors.success} onPress={handleConfirmRental} />
+        <Button 
+        title='Alugar agora' 
+        color={theme.colors.success}
+        onPress={handleConfirmRental}
+        enabled={!loading}
+        loading={loading}
+         />
       </Footer>
     </Container>
   );
