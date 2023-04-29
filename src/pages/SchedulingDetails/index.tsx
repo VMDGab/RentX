@@ -74,14 +74,19 @@ export function SchedulingDetails() {
       ...dates,
     ];
 
+   await api.post('/schedules_byuser', {
+    car,
+    user_id: 1,
+    startDate: rentalPeriod.start,
+    endDate: rentalPeriod.end,
+    })
+
     api.put(`/schedules_bycars/${car.id}`,{
       id: car.id,
       unavailable_dates
     }).then( response => navigation.navigate('SchedulingComplete'))
     .catch(() => Alert.alert('Erro ao agendar.', 'Não foi possivel confirmar o agendamento do carro.'))
-
    
-    
   }
 
   function handleGoBack() {

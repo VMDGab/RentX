@@ -8,11 +8,12 @@ import { Home } from '../pages/Home';
 import { Scheduling } from '../pages/Scheduling';
 import { SchedulingComplete } from '../pages/SchedulingComplete';
 import { SchedulingDetails } from '../pages/SchedulingDetails';
+import { MyCars } from '../pages/MyCars';
 
 export function StackRoutes() {
   return (
     <Navigator>
-
+     
 
       <Screen name="Home" component={Home} options={{headerShown: false}} />
 
@@ -24,6 +25,7 @@ export function StackRoutes() {
 
       <Screen name="SchedulingDetails" component={SchedulingDetails} options={{headerShown: false}} />
 
+       <Screen name="MyCars" component={MyCars} options={{headerShown: false}} />
     </Navigator>
   );
 }
