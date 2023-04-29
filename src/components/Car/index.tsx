@@ -1,5 +1,5 @@
 import React from 'react';
-import Gasoline from '../../assets/gasoline.svg'
+import { GetAccessoryIcon } from '../../utils/getAccessoryIcon';
 import {
     Container,
     Details,
@@ -21,6 +21,8 @@ interface props extends RectButtonProps {
   }
 
 export function Car({data, ...rest}: props) {
+
+    const MotorIcon = GetAccessoryIcon(data.fuel_type)
     return (
         <Container {...rest}>
             <Details>
@@ -34,7 +36,7 @@ export function Car({data, ...rest}: props) {
                 <Price>{`R$ ${data.rent.price}`}</Price>
                     </Rent>
                     <Type>
-                        <Gasoline />
+                        < MotorIcon />
                     </Type>
                 </About>
 

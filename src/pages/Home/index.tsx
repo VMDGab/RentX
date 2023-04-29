@@ -3,13 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native'
 import Logo from '../../assets/logo.svg'
 import { RFValue } from 'react-native-responsive-fontsize';
-import {
-  Container,
-  Header,
-  TotalCars,
-  HeaderContent,
-  CarList
-} from './styles';
+
 import { Car } from '../../components/Car';
 import { useNavigation } from '@react-navigation/native';
 import { CarDTO } from '../../DTOS/CarDto';
@@ -17,6 +11,14 @@ import { CarDTO } from '../../DTOS/CarDto';
 import { api } from '../../services/api';
 import { Load } from '../../components/Load';
 
+
+import {
+  Container,
+  Header,
+  TotalCars,
+  HeaderContent,
+  CarList,
+} from './styles';
 
 
 export function Home() {
@@ -78,6 +80,8 @@ export function Home() {
 
           />
       }
+
+      
     </Container >
   );
 }

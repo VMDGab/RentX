@@ -7,12 +7,7 @@ import { Button } from '../../components/Button';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import SpeedSvg from '../../assets/speed.svg';
-import AccelerationSvg from '../../assets/acceleration.svg';
-import ForceSvg from '../../assets/force.svg';
-import GasolineSvg from '../../assets/gasoline.svg';
-import ExchangeSvg from '../../assets/exchange.svg';
-import PeopleSvg from '../../assets/speed.svg';
+import { GetAccessoryIcon } from '../../utils/getAccessoryIcon';
 
 import {
   Container,
@@ -45,7 +40,7 @@ export function CarDetails() {
   const navigation = useNavigation()
 
   function handleConfirmRental() {
-    navigation.navigate('Scheduling')
+    navigation.navigate('Scheduling', {car})
   }
 
   function handleGoBack() {
@@ -78,7 +73,7 @@ export function CarDetails() {
             car.accessories.map(accessory => (
               <Accessory
               key={accessory.type}
-              icon={SpeedSvg} 
+              icon={GetAccessoryIcon(accessory.type)} 
               name={accessory.name} />
             ))
           }
