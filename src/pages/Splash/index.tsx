@@ -73,11 +73,11 @@ export function Splash() {
         backgroundColor='transparent'
       />
       <Animated.View style={[BrandStyle, {position:'absolute'}]}>
-        <BrandSvg width={80} height={50} />
+        <BrandSvg width={100} height={70} />
       </Animated.View>
 
       <Animated.View style={[LogoStyle, {position:'absolute'}]}>
-        <LogoSvg width={180} height={20} />
+        <LogoSvg width={200} height={40} />
       </Animated.View>
 
     </Container>
