@@ -9,17 +9,19 @@ import Animated, {
   Easing,
   interpolate,
   Extrapolate,
-
+  runOnJS,
 } from 'react-native-reanimated';
 
 import {
   Container,
 } from './styles';
 import { StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 export function Splash() {
+  const navigation = useNavigation();
 
   const splashAnimation = useSharedValue(0);
 
@@ -49,11 +51,18 @@ export function Splash() {
     }
   });
 
+  function startApp(){
+    navigation.navigate('Home')
+  }
+
   useEffect(()=> {
     splashAnimation.value = withTiming(
       50,
-      {duration: 1000}
-    )
+      {duration: 1000},
+      () => {
+      'worklet'
+      runOnJS(startApp)();
+    })
   },[])
 
   return (
