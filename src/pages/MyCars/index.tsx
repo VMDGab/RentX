@@ -25,7 +25,8 @@ import {
     DateValue,
     DateInfo,
 } from './styles';
-import { Load } from '../../components/Load';
+
+import { LoadAnimation } from '../../components/LoadAnimation';
 
 
 interface CarProps {
@@ -88,7 +89,7 @@ export function MyCars() {
                 </HeaderCars>
 
                 {
-                    loading ? <Load /> :
+                    loading ? <LoadAnimation /> :
                         <CarList
                             data={cars}
                             keyExtractor={item => item.id}
