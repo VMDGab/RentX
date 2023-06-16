@@ -3,11 +3,11 @@ import React, { useRef, useState } from 'react';
 import {
   Container,
   ImageIndexes,
-  ImageIndex,
   CarImageWrapper,
   CarImage,
 } from './styles';
 import { FlatList, ViewToken } from 'react-native';
+import { Bullets } from '../Bullets';
 
 interface Props {
   ImagesUrl: string[]
@@ -30,7 +30,7 @@ const indexChanged = useRef((info: ChangeImageProps) => {
     <Container>
       <ImageIndexes>
         { ImagesUrl.map(( _ , index) => 
-        <ImageIndex
+        <Bullets
         key={String(index)}
         active={index === imageIndex} 
         />
